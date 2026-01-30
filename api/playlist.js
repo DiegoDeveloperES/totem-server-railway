@@ -61,15 +61,6 @@ router.get("/", async (req, res) => {
           },
         },
         {
-          id: "video-03",
-          type: "video",
-          duration: 0,
-          content: {
-            url: mediaUrl("/media/videos/video3.mp4"),
-            loop: true,
-          },
-        },
-        {
           id: "image-03",
           type: "image",
           duration: 15,
@@ -82,7 +73,16 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img1.jpg"),
+            url: mediaUrl("/media/imagens/img4.jpg"),
+          },
+        },
+                {
+          id: "video-03",
+          type: "video",
+          duration: 0,
+          content: {
+            url: mediaUrl("/media/videos/video3.mp4"),
+            loop: true,
           },
         },
         {
@@ -90,10 +90,18 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img2.jpg"),
+            url: mediaUrl("/media/imagens/img5.jpg"),
           },
         },
         {
+          id: "image-06",
+          type: "image",
+          duration: 15,
+          content: {
+            url: mediaUrl("/media/imagens/img6.jpg"),
+          },
+        },
+                {
           id: "video-04",
           type: "video",
           duration: 0,
@@ -103,19 +111,11 @@ router.get("/", async (req, res) => {
           },
         },
         {
-          id: "image-06",
-          type: "image",
-          duration: 15,
-          content: {
-            url: mediaUrl("/media/imagens/img3.jpg"),
-          },
-        },
-        {
           id: "image-07",
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img1.jpg"),
+            url: mediaUrl("/media/imagens/img7.jpg"),
           },
         },
         {
@@ -123,7 +123,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img2.jpg"),
+            url: mediaUrl("/media/imagens/img8.jpg"),
           },
         },
         {
