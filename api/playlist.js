@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 const { fetchRSS } = require("../services/rssService");
 
+// Resolve a BASE_URL conforme ambiente
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? process.env.BASE_URL_PROD
+    : process.env.BASE_URL;
+
+// Helper para montar URL final
+const mediaUrl = (path) => `${BASE_URL}${path}`;
+
 router.get("/", async (req, res) => {
   try {
     const rssItems = await fetchRSS();
@@ -17,7 +26,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: "/media/videos/video1.mp4",
+            url: mediaUrl("/media/videos/video1.mp4"),
             loop: true
           }
         },
@@ -26,7 +35,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image1.jpg"
+            url: mediaUrl("/media/imagens/img1.jpg")
           }
         },
         {
@@ -34,7 +43,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image2.jpg"
+            url: mediaUrl("/media/imagens/img2.jpg")
           }
         },
         {
@@ -42,7 +51,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: "/media/videos/video2.mp4",
+            url: mediaUrl("/media/videos/video2.mp4"),
             loop: true
           }
         },
@@ -51,7 +60,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: "/media/videos/video3.mp4",
+            url: mediaUrl("/media/videos/video3.mp4"),
             loop: true
           }
         },
@@ -60,7 +69,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image3.jpg"
+            url: mediaUrl("/media/imagens/img3.jpg")
           }
         },
         {
@@ -68,7 +77,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image1.jpg"
+            url: mediaUrl("/media/imagens/img1.jpg")
           }
         },
         {
@@ -76,7 +85,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image2.jpg"
+            url: mediaUrl("/media/imagens/img2.jpg")
           }
         },
         {
@@ -84,7 +93,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: "/media/videos/video4.mp4",
+            url: mediaUrl("/media/videos/video4.mp4"),
             loop: true
           }
         },
@@ -93,7 +102,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image3.jpg"
+            url: mediaUrl("/media/imagens/img3.jpg")
           }
         },
         {
@@ -101,7 +110,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image1.jpg"
+            url: mediaUrl("/media/imagens/img1.jpg")
           }
         },
         {
@@ -109,7 +118,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: "/media/images/image2.jpg"
+            url: mediaUrl("/media/imagens/img2.jpg")
           }
         },
         {
@@ -124,7 +133,7 @@ router.get("/", async (req, res) => {
       ]
     });
   } catch (error) {
-    console.error(error);
+    console.error("Erro ao gerar playlist:", error);
     res.status(500).json({ error: "Erro ao gerar playlist" });
   }
 });
