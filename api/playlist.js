@@ -2,18 +2,13 @@ const express = require("express");
 const router = express.Router();
 const { fetchRSS } = require("../services/rssService");
 
-// Resolve a BASE_URL conforme ambiente
-const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? process.env.BASE_URL_PROD
-    : process.env.BASE_URL;
-
-// Helper para montar URL final
-const mediaUrl = (path) => `${BASE_URL}${path}`;
+const BASE_PUBLIC_URL = process.env.BASE_PUBLIC_URL;
 
 router.get("/", async (req, res) => {
   try {
     const rssItems = await fetchRSS();
+
+    const mediaUrl = (path) => `${BASE_PUBLIC_URL}${path}`;
 
     res.json({
       version: "1.0.0",
@@ -133,7 +128,7 @@ router.get("/", async (req, res) => {
       ]
     });
   } catch (error) {
-    console.error("Erro ao gerar playlist:", error);
+    console.error(error);
     res.status(500).json({ error: "Erro ao gerar playlist" });
   }
 });

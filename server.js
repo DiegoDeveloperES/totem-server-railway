@@ -18,11 +18,7 @@ app.use("/api/playlist", playlistRoute);
 app.get("/", (req, res) => {
   res.json({
     status: "Totem server running",
-    environment: process.env.NODE_ENV,
-    baseUrl:
-      process.env.NODE_ENV === "production"
-        ? process.env.BASE_URL_PROD
-        : process.env.BASE_URL
+    env: process.env.NODE_ENV
   });
 });
 
