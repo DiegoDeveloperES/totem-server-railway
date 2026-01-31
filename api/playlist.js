@@ -35,14 +35,14 @@ router.get("/", async (req, res) => {
         //     loop: true,
         //   },
         // },
-        {
-          id: "image-01",
-          type: "image",
-          duration: 5,
-          content: {
-            url: mediaUrl(req, "/media/imagens/img1.jpg"),
-          },
-        },
+        // {
+        //   id: "image-01",
+        //   type: "image",
+        //   duration: 5,
+        //   content: {
+        //     url: mediaUrl(req, "/media/imagens/img1.jpg"),
+        //   },
+        // },
         {
           id: "image-02",
           type: "image",
@@ -124,6 +124,14 @@ router.get("/", async (req, res) => {
           duration: 5,
           content: {
             url: mediaUrl(req, "/media/imagens/img8.jpg"),
+          },
+        },
+        {
+          id: "image-10",
+          type: "image",
+          duration: 5,
+          content: {
+            url: mediaUrl(req, "/media/imagens/img10.jpg"),
           },
         },
         {
