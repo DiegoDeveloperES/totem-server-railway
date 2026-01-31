@@ -26,23 +26,23 @@ router.get("/", async (req, res) => {
       refreshInterval: 300,
 
       playlist: [
-        // {
-        //   id: "video-01",
-        //   type: "video",
-        //   duration: 0,
-        //   content: {
-        //     url: mediaUrl(req, "/media/videos/video1.mp4"),
-        //     loop: true,
-        //   },
-        // },
-        // {
-        //   id: "image-01",
-        //   type: "image",
-        //   duration: 5,
-        //   content: {
-        //     url: mediaUrl(req, "/media/imagens/img1.jpg"),
-        //   },
-        // },
+        {
+          id: "video-01",
+          type: "video",
+          duration: 0,
+          content: {
+            url: mediaUrl(req, "/media/videos/video1.mp4"),
+            loop: true,
+          },
+        },
+        {
+          id: "image-01",
+          type: "image",
+          duration: 5,
+          content: {
+            url: mediaUrl(req, "/media/imagens/img1.jpg"),
+          },
+        },
         {
           id: "image-02",
           type: "image",
@@ -124,14 +124,6 @@ router.get("/", async (req, res) => {
           duration: 5,
           content: {
             url: mediaUrl(req, "/media/imagens/img8.jpg"),
-          },
-        },
-        {
-          id: "image-10",
-          type: "image",
-          duration: 5,
-          content: {
-            url: mediaUrl(req, "/media/imagens/img10.jpg"),
           },
         },
         {
