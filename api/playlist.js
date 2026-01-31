@@ -2,33 +2,26 @@ const express = require("express");
 const router = express.Router();
 const { fetchRSS } = require("../services/rssService");
 
-const BASE_PUBLIC_URL =
-  process.env.BASE_PUBLIC_URL ||
-  process.env.BASE_URL_PROD ||
-  process.env.BASE_URL ||
-  "";
-
 router.get("/", async (req, res) => {
   try {
     const rssItems = await fetchRSS();
 
-    const mediaUrl = (path) => {
-      if (!BASE_PUBLIC_URL) {
-        console.error("❌ BASE_PUBLIC_URL não definida");
-        return path; // fallback explícito
+    // ===== URL ABSOLUTA GARANTIDA =====
+    const mediaUrl = (req, path) => {
+      const protocol = req.headers["x-forwarded-proto"] || req.protocol;
+      const host = req.get("host");
+
+      if (!host) {
+        console.error("❌ Host não detectado no request");
+        return path; // fallback extremo (não deveria acontecer)
       }
 
-      const base = BASE_PUBLIC_URL.endsWith("/")
-        ? BASE_PUBLIC_URL.slice(0, -1)
-        : BASE_PUBLIC_URL;
-
       const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-
-      return `${base}${normalizedPath}`;
+      return `${protocol}://${host}${normalizedPath}`;
     };
 
     res.json({
-      version: "1.0.0",
+      version: "1.0.1",
       updatedAt: new Date().toISOString(),
       refreshInterval: 300,
 
@@ -38,7 +31,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: mediaUrl("/media/videos/video1.mp4"),
+            url: mediaUrl(req, "/media/videos/video1.mp4"),
             loop: true,
           },
         },
@@ -47,7 +40,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img1.jpg"),
+            url: mediaUrl(req, "/media/imagens/img1.jpg"),
           },
         },
         {
@@ -55,7 +48,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img2.jpg"),
+            url: mediaUrl(req, "/media/imagens/img2.jpg"),
           },
         },
         {
@@ -63,7 +56,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: mediaUrl("/media/videos/video2.mp4"),
+            url: mediaUrl(req, "/media/videos/video2.mp4"),
             loop: true,
           },
         },
@@ -72,7 +65,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img3.jpg"),
+            url: mediaUrl(req, "/media/imagens/img3.jpg"),
           },
         },
         {
@@ -80,7 +73,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img4.jpg"),
+            url: mediaUrl(req, "/media/imagens/img4.jpg"),
           },
         },
         {
@@ -88,7 +81,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: mediaUrl("/media/videos/video3.mp4"),
+            url: mediaUrl(req, "/media/videos/video3.mp4"),
             loop: true,
           },
         },
@@ -97,7 +90,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img5.jpg"),
+            url: mediaUrl(req, "/media/imagens/img5.jpg"),
           },
         },
         {
@@ -105,7 +98,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img6.jpg"),
+            url: mediaUrl(req, "/media/imagens/img6.jpg"),
           },
         },
         {
@@ -113,7 +106,7 @@ router.get("/", async (req, res) => {
           type: "video",
           duration: 0,
           content: {
-            url: mediaUrl("/media/videos/video4.mp4"),
+            url: mediaUrl(req, "/media/videos/video4.mp4"),
             loop: true,
           },
         },
@@ -122,7 +115,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img7.jpg"),
+            url: mediaUrl(req, "/media/imagens/img7.jpg"),
           },
         },
         {
@@ -130,7 +123,7 @@ router.get("/", async (req, res) => {
           type: "image",
           duration: 15,
           content: {
-            url: mediaUrl("/media/imagens/img8.jpg"),
+            url: mediaUrl(req, "/media/imagens/img8.jpg"),
           },
         },
         {
