@@ -26,15 +26,15 @@ router.get("/", async (req, res) => {
       refreshInterval: 300,
 
       playlist: [
-        {
-          id: "video-01",
-          type: "video",
-          duration: 0,
-          content: {
-            url: mediaUrl(req, "/media/videos/video1.mp4"),
-            loop: true,
-          },
-        },
+        // {
+        //   id: "video-01",
+        //   type: "video",
+        //   duration: 0,
+        //   content: {
+        //     url: mediaUrl(req, "/media/videos/video1.mp4"),
+        //     loop: true,
+        //   },
+        // },
         {
           id: "image-01",
           type: "image",
@@ -51,15 +51,15 @@ router.get("/", async (req, res) => {
         //     url: mediaUrl(req, "/media/imagens/img2.jpg"),
         //   },
         // },
-        {
-          id: "video-02",
-          type: "video",
-          duration: 0,
-          content: {
-            url: mediaUrl(req, "/media/videos/video2.mp4"),
-            loop: true,
-          },
-        },
+        // {
+        //   id: "video-02",
+        //   type: "video",
+        //   duration: 0,
+        //   content: {
+        //     url: mediaUrl(req, "/media/videos/video2.mp4"),
+        //     loop: true,
+        //   },
+        // },
         {
           id: "image-03",
           type: "image",
@@ -76,48 +76,48 @@ router.get("/", async (req, res) => {
         //     url: mediaUrl(req, "/media/imagens/img4.jpg"),
         //   },
         // },
-        {
-          id: "video-03",
-          type: "video",
-          duration: 0,
-          content: {
-            url: mediaUrl(req, "/media/videos/video3.mp4"),
-            loop: true,
-          },
-        },
-        {
-          id: "image-05",
-          type: "image",
-          duration: 15,
-          content: {
-            url: mediaUrl(req, "/media/imagens/img5.jpg"),
-          },
-        },
-        {
-          id: "image-06",
-          type: "image",
-          duration: 15,
-          content: {
-            url: mediaUrl(req, "/media/imagens/img6.jpg"),
-          },
-        },
-        {
-          id: "video-04",
-          type: "video",
-          duration: 0,
-          content: {
-            url: mediaUrl(req, "/media/videos/video4.mp4"),
-            loop: true,
-          },
-        },
-        {
-          id: "image-07",
-          type: "image",
-          duration: 15,
-          content: {
-            url: mediaUrl(req, "/media/imagens/img7.jpg"),
-          },
-        },
+        // {
+        //   id: "video-03",
+        //   type: "video",
+        //   duration: 0,
+        //   content: {
+        //     url: mediaUrl(req, "/media/videos/video3.mp4"),
+        //     loop: true,
+        //   },
+        // },
+        // {
+        //   id: "image-05",
+        //   type: "image",
+        //   duration: 15,
+        //   content: {
+        //     url: mediaUrl(req, "/media/imagens/img5.jpg"),
+        //   },
+        // },
+        // {
+        //   id: "image-06",
+        //   type: "image",
+        //   duration: 15,
+        //   content: {
+        //     url: mediaUrl(req, "/media/imagens/img6.jpg"),
+        //   },
+        // },
+        // {
+        //   id: "video-04",
+        //   type: "video",
+        //   duration: 0,
+        //   content: {
+        //     url: mediaUrl(req, "/media/videos/video4.mp4"),
+        //     loop: true,
+        //   },
+        // },
+        // {
+        //   id: "image-07",
+        //   type: "image",
+        //   duration: 15,
+        //   content: {
+        //     url: mediaUrl(req, "/media/imagens/img7.jpg"),
+        //   },
+        // },
         // {
         //   id: "image-08",
         //   type: "image",
