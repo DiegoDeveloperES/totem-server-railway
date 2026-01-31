@@ -35,14 +35,14 @@ router.get("/", async (req, res) => {
             loop: true,
           },
         },
-        {
-          id: "image-01",
-          type: "image",
-          duration: 5,
-          content: {
-            url: mediaUrl(req, "/media/imagens/img1.jpg"),
-          },
-        },
+        // {
+        //   id: "image-01",
+        //   type: "image",
+        //   duration: 5,
+        //   content: {
+        //     url: mediaUrl(req, "/media/imagens/img1.jpg"),
+        //   },
+        // },
         {
           id: "image-02",
           type: "image",
