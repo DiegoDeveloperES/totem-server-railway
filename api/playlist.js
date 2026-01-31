@@ -127,6 +127,14 @@ router.get("/", async (req, res) => {
         //   },
         // },
         {
+          id: "image-09",
+          type: "image",
+          duration: 15,
+          content: {
+            url: mediaUrl(req, "/media/imagens/img9.jpg"),
+          },
+        },
+        {
           id: "rss-01",
           type: "rss",
           duration: 20,
