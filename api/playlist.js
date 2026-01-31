@@ -15,9 +15,16 @@ router.get("/", async (req, res) => {
     const mediaUrl = (path) => {
       if (!BASE_PUBLIC_URL) {
         console.error("❌ BASE_PUBLIC_URL não definida");
-        return path; // fallback
+        return path; // fallback explícito
       }
-      return `${BASE_PUBLIC_URL}${path}`;
+
+      const base = BASE_PUBLIC_URL.endsWith("/")
+        ? BASE_PUBLIC_URL.slice(0, -1)
+        : BASE_PUBLIC_URL;
+
+      const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+
+      return `${base}${normalizedPath}`;
     };
 
     res.json({
@@ -76,7 +83,7 @@ router.get("/", async (req, res) => {
             url: mediaUrl("/media/imagens/img4.jpg"),
           },
         },
-                {
+        {
           id: "video-03",
           type: "video",
           duration: 0,
@@ -101,7 +108,7 @@ router.get("/", async (req, res) => {
             url: mediaUrl("/media/imagens/img6.jpg"),
           },
         },
-                {
+        {
           id: "video-04",
           type: "video",
           duration: 0,
