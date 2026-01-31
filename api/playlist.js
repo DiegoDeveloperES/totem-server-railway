@@ -76,15 +76,15 @@ router.get("/", async (req, res) => {
             url: mediaUrl(req, "/media/imagens/img4.jpg"),
           },
         },
-        // {
-        //   id: "video-03",
-        //   type: "video",
-        //   duration: 0,
-        //   content: {
-        //     url: mediaUrl(req, "/media/videos/video3.mp4"),
-        //     loop: true,
-        //   },
-        // },
+        {
+          id: "video-03",
+          type: "video",
+          duration: 0,
+          content: {
+            url: mediaUrl(req, "/media/videos/video3.mp4"),
+            loop: true,
+          },
+        },
         {
           id: "image-05",
           type: "image",
